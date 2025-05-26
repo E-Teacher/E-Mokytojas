@@ -21,9 +21,14 @@ def lesson_page(code, page):
     path = os.path.join('LessonFiles', code, f'{page}.html')
     if not os.path.isfile(path):
         return f'<h2>Puslapis nerastas ({code}/{page})</h2><a href="/">Grįžti</a>', 404
+    
+    next_page_path = os.path.join('LessonFiles', code, f'{page + 1}.html')
+    has_next = os.path.isfile(next_page_path)
+    
     with open(path, encoding='utf-8') as f:
         html = f.read()
-    return render_template('lesson.html', code=code, page=page, content=html)
+    return render_template('lesson.html', code=code, page=page, content=html, has_next=has_next)
+
 
 @app.route('/health')
 def health_check():
