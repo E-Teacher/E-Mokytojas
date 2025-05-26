@@ -9,7 +9,7 @@
   <div>{{ content|safe }}</div>
   <div style="margin-top:1rem;">
   {% if page > 1 %}
-    <a href="{{ url_for('lesson_page', code=code, page=page-1) }}">Ankstesnis</a>
+    <a style="margin-left:1rem;" href="{{ url_for('lesson_page', code=code, page=page-1) }}">Ankstesnis</a>
   {% endif %}
   {% if has_next %}
     <a style="margin-left:1rem;" href="{{ url_for('lesson_page', code=code, page=page+1) }}">Kitas</a>
