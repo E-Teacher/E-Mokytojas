@@ -13,6 +13,8 @@
   {% endif %}
   {% if has_next %}
     <a style="margin-left:1rem;" href="{{ url_for('lesson_page', code=code, page=page+1) }}">Kitas</a>
+  {% else %}
+    <a style="margin-left:1rem;" href="{{ url_for('index') }}">Baigti pamoka</a>
   {% endif %}
 </div>
 </body>
