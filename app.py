@@ -8,13 +8,7 @@ def index():
     if request.method == 'POST':
         code = request.form['code'].upper()
         return redirect(url_for('lesson_page', code=code, page=1))
-    return '''
-        <h1>e-mokytojas</h1>
-        <form method="post">
-            <input name="code" maxlength="4" placeholder="Pvz: ABCD">
-            <button type="submit">Pradėti</button>
-        </form>
-    '''
+    return render_template('home.html')
 
 @app.route('/lesson/<code>/<int:page>')
 def lesson_page(code, page):
