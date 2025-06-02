@@ -6,17 +6,19 @@
   <title>eTeacher.lt pamoka – {{ page }} puslapis</title>
 </head>
 <body>
-  <h2>Kodas: {{ code }}</h2>
-  <div class="lesson-container">{{ content|safe }}</div>
-  <div style="margin-top:1rem;">
-  {% if page > 1 %}
-    <a class="nav-buttons" style="margin-left:1rem;" href="{{ url_for('lesson_page', code=code, page=page-1) }}">Ankstesnis</a>
-  {% endif %}
-  {% if has_next %}
-    <a class="nav-buttons" style="margin-left:1rem;" href="{{ url_for('lesson_page', code=code, page=page+1) }}">Kitas</a>
-  {% else %}
-    <a class="nav-buttons" style="margin-left:1rem;" href="{{ url_for('index') }}">Baigti pamoka</a>
-  {% endif %}
-</div>
+  <div class="lesson-container">
+    <h2>Kodas: {{ code }}</h2>
+    {{ content|safe }}
+    <div style="margin-top:1rem;">
+      {% if page > 1 %}
+      <a class="nav-buttons" style="margin-left:1rem;" href="{{ url_for('lesson_page', code=code, page=page-1) }}">Ankstesnis</a>
+      {% endif %}
+      {% if has_next %}
+      <a class="nav-buttons" style="margin-left:1rem;" href="{{ url_for('lesson_page', code=code, page=page+1) }}">Kitas</a>
+      {% else %}
+      <a class="nav-buttons" style="margin-left:1rem;" href="{{ url_for('index') }}">Baigti pamoka</a>
+      {% endif %}
+    </div>
+  </div>
 </body>
 </html>
